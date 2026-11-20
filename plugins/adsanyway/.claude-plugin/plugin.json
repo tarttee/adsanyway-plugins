@@ -1,0 +1,26 @@
+{
+  "name": "adsanyway",
+  "version": "1.0.0",
+  "description": "Sell banner ad slots on your site, or find, plan and book slots on niche and gaming sites. Claude sets up the slot, makes the banner, picks placements and reads results. You book and pay on AdsAnyway.",
+  "author": {
+    "name": "AdsAnyway",
+    "url": "https://adsanyway.com"
+  },
+  "homepage": "https://adsanyway.com/agents",
+  "repository": "https://github.com/tarttee/adsanyway-plugins",
+  "license": "MIT",
+  "keywords": [
+    "advertising",
+    "ads",
+    "monetization",
+    "gaming",
+    "marketing",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://adsanyway.com/agents",
+  "supportUrl": "https://adsanyway.com/agents",
+  "privacyPolicyUrl": "https://adsanyway.com/privacy",
+  "termsOfServiceUrl": "https://adsanyway.com/terms"
+}

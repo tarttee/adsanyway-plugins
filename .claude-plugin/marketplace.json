@@ -1,0 +1,18 @@
+{
+  "name": "adsanyway",
+  "owner": {
+    "name": "AdsAnyway",
+    "url": "https://adsanyway.com"
+  },
+  "metadata": {
+    "description": "AdsAnyway plugins: buy and sell banner ad slots on niche and gaming sites from Claude."
+  },
+  "plugins": [
+    {
+      "name": "adsanyway",
+      "source": "./plugins/adsanyway",
+      "description": "Sell ad slots on your site, or find and book slots on niche and gaming sites, from Claude.",
+      "category": "marketing"
+    }
+  ]
+}

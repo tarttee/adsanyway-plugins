@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "adsanyway": {
+      "type": "http",
+      "url": "https://adsanyway.com/mcp/app"
+    }
+  }
+}

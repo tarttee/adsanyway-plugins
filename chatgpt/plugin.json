@@ -1,0 +1,87 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "adsanyway",
+  "version": "1.0.0",
+  "description": "Sell banner ad slots on your site, or find and book slots on niche and gaming sites.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "AdsAnyway",
+        "shortDescription": "Buy and sell site ad slots",
+        "longDescription": "AdsAnyway is a marketplace for banner ad slots on niche and gaming sites that big ad networks underprice. Advertisers reach engaged, relevant audiences; site owners keep 85% of each booking.\n\nWith AdsAnyway in ChatGPT you can:\n- Find ad slots for your game, app or product. ChatGPT searches by audience, compares price per day, measured daily views and open dates, and plans slots inside your budget.\n- Make a banner at the right size from a headline, or add an image you have.\n- Check a booking: size, dates and total. ChatGPT gives you the booking page on AdsAnyway with everything filled in, where you review it and pay.\n- Sell ad space on your own site. ChatGPT creates the slot, gives you the embed code or WordPress plugin, and checks that it is live.\n- Read results: ads served, clicks and cost per click for buyers; loads, bookings and earnings for sellers. Approve or decline incoming bookings.\n\nBooking, top-ups and payouts happen on adsanyway.com. Sign in with your AdsAnyway account to connect.",
+        "developerName": "AdsAnyway",
+        "category": "Business",
+        "capabilities": ["Interactive", "Write"],
+        "websiteURL": "https://adsanyway.com",
+        "supportURL": "https://adsanyway.com/agents",
+        "privacyPolicyURL": "https://adsanyway.com/privacy",
+        "termsOfServiceURL": "https://adsanyway.com/terms",
+        "defaultPrompt": [
+          "Find ad slots on gaming sites for my indie game with a $100 budget",
+          "Put a paid ad slot on my website",
+          "How are my AdsAnyway ads doing?"
+        ],
+        "brandColor": "#E8B84F",
+        "brandColorDark": "#E8B84F",
+        "composerIcon": "./assets/composer-icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search the marketplace for slots that fit a product's audience",
+              "prompt": "Find ad slots on AdsAnyway for a cozy fishing game. Show me a few options for a 7 day run.",
+              "tools_triggered": ["search_marketplace"],
+              "expected_behavior": "Calls search_marketplace with audience words and days=7, shows the slot cards, and recommends 3 to 5 slots with a reason, the price per day and the 7 day total in dollars."
+            },
+            {
+              "description": "Plan slots inside a budget",
+              "prompt": "I have $60 to spend on AdsAnyway over 7 days. Which slots should I take?",
+              "tools_triggered": ["search_marketplace"],
+              "expected_behavior": "Calls search_marketplace with budget_cents=6000 and days=7 and proposes slots whose totals add up to $60 or less, with each total and open date."
+            },
+            {
+              "description": "Make a text banner at a slot size",
+              "prompt": "Make me a 728x90 AdsAnyway banner for Lanternfall, a cozy fishing roguelite, linking to https://example.com/lanternfall with a Wishlist button.",
+              "tools_triggered": ["create_text_banner"],
+              "expected_behavior": "Calls create_text_banner with the headline, click_url, cta and 728x90, and shows the banner card with its review status."
+            },
+            {
+              "description": "Check a booking and hand back the booking page",
+              "prompt": "Book my Lanternfall leaderboard banner on the first slot you found for 7 days from its first open day.",
+              "tools_triggered": ["get_listing", "list_creatives", "prepare_booking"],
+              "expected_behavior": "Finds the banner, calls prepare_booking with the zone, banner and dates, shows the booking card with dates and total, and gives the review link. It says the person books and pays on AdsAnyway and does not claim the slot is booked."
+            },
+            {
+              "description": "Show results for the buyer's bookings",
+              "prompt": "How are my AdsAnyway campaigns doing?",
+              "tools_triggered": ["list_campaigns", "report"],
+              "expected_behavior": "Calls list_campaigns, then report for a campaign, and summarizes ads served, clicks, CTR and cost per click in dollars."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General advertising advice not about AdsAnyway",
+              "prompt": "What is a good click-through rate for Google search ads?"
+            },
+            {
+              "description": "Running ads on another ad platform",
+              "prompt": "Create a Facebook ad campaign for my bakery."
+            },
+            {
+              "description": "Writing ad copy with no request to use AdsAnyway",
+              "prompt": "Write three taglines for my coffee shop."
+            }
+          ]
+        },
+        "demo_recording_url": "",
+        "commerce": false
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "First release: find and plan ad slots, make banners, check bookings, set up slots on your site, and read results, with interactive cards."
+      }
+    }
+  }
+}
