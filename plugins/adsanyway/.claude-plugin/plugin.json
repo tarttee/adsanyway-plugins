@@ -1,5 +1,6 @@
 {
   "name": "adsanyway",
+  "displayName": "AdsAnyway",
   "version": "1.0.0",
   "description": "Sell banner ad slots on your site, or find, plan and book slots on niche and gaming sites. Claude sets up the slot, makes the banner, picks placements and reads results. You book and pay on AdsAnyway.",
   "author": {
